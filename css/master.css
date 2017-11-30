@@ -29,22 +29,6 @@ body{
 	left: 0;
 	width: 100vw;
 }
-.main-wrapper h1{
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    font-size: 30px;
-}
-.main-wrapper a{
-   text-decoration: none;
-}
-.main-wrapper a:hover{
-  text-decoration: underline;
-  color:black;
-}
-.main-wrapper h2{
-  display: none;
-}
 /* LOADING */
 #loading{
 	position: fixed;
@@ -53,8 +37,7 @@ body{
 	width: 100vw;
 	height: 100vh;
 	background: #fff;
-	z-index: 5000;
-
+	z-index: 9000;
 	-webkit-transition: all 0.7s ease-out;
 	-moz-transition: all 0.7s ease-out;
 	-ms-transition: all 0.7s ease-out;
@@ -72,9 +55,13 @@ body{
   -moz-animation: rotE 10s linear infinite;
   -ms-animation: rotE 10s linear infinite;
   -o-animation: rotE 10s linear infinite;
+	animation: rotE 10s linear infinite;
 
 	-webkit-transform-origin: 50% 50%;
-  animation: rotE 10s linear infinite;
+  -moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
 }
 #loading>div{
 	position: absolute;
@@ -92,24 +79,42 @@ body{
 #loading>div>p:nth-child(2){
 	font-size: 16px;
 }
-nav>ul{
-  width:80%;
-  margin:20px;
+nav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  z-index: 2000;
+  display: block;
 }
-nav>ul>li{
-  font-size: 35px;
-  float: left;
-  margin: 8px;
-  padding-left:5px;
+nav>a:first-child{
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-	color: #fff;
+  font-size: 30px;
+  margin-left: 5%;
 }
-nav>ul>li>a{
-    text-decoration: none;
-    padding: 7px;
+nav>a:first-child:hover{
+  text-decoration: underline;
 }
+nav>a:nth-child(2){
+  display: block;
+  width: 40px;
+  position: absolute;
+  right: 5%;
+  top: 12%;
+}
+nav>a:nth-child(3){
+	position: absolute;
+	right: calc(7% + 50px);
+	font-size: 22px;
+	text-decoration: none;
+}
+nav>a:nth-child(3):hover{
+  text-decoration: underline;
+}
+
 
 #outer-wrapper >div{
   position: absolute;
@@ -152,20 +157,6 @@ nav>ul>li>a{
 #outer-wrapper >ul>li>a:hover, #outer-wrapper >ul>li>a:focus{
 	background: #fff;
 }
-nav>ul>li>a:hover{
-		text-decoration: underline;
-}
-
-nav>ul>li>a:focus{
-		background: #fff;
-		text-decoration: underline;
-}
-
-nav>ul>li>a:hover{
-	background: #fff;
-	text-decoration: underline;
-}
-
 #info a{
     position: absolute;
     bottom: 25px;
@@ -178,42 +169,7 @@ nav>ul>li>a:hover{
     text-decoration: underline;
     color:black;
 }
-/*ABOUT*/
-#menuAbout{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background: #fff;
-  z-index: 2000;
-  display: block;
-}
-#menuAbout>a:first-child{
-  text-decoration: none;
-  font-size: 30px;
-  margin-left: 5%;
-}
-#menuAbout>a:first-child:hover{
-  text-decoration: underline;
-}
-#menuAbout>a:nth-child(2){
-  display: block;
-  width: 40px;
-  position: absolute;
-  right: 5%;
-  top: 12%;
-}
-#menuAbout>a:nth-child(3){
-	position: absolute;
-	right: calc(7% + 50px);
-	font-size: 22px;
-	text-decoration: none;
-}
-#menuAbout>a:nth-child(3):hover{
-  text-decoration: underline;
-}
+
 #main{
   position: absolute;
   width: 90%;
