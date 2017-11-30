@@ -29,6 +29,9 @@ body{
 	left: 0;
 	width: 100vw;
 }
+.hideDisplay { display: none }
+.showDisplay { display: block }
+.showDisplayFlex { display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; }
 /* LOADING */
 #loading{
 	position: fixed;
@@ -80,13 +83,14 @@ body{
 	font-size: 16px;
 }
 nav{
+  display: block;
   position: relative;
   width: 100%;
   height: 60px;
   line-height: 60px;
   background: #fff;
   z-index: 2000;
-  display: block;
+  margin: 20px auto;
 }
 nav>a:first-child{
   text-decoration: none;
@@ -112,35 +116,58 @@ nav>a:nth-child(3){
 nav>a:nth-child(3):hover{
   text-decoration: underline;
 }
-#outer-wrapper{
+.main{
   position: relative;
-}
-#outer-wrapper >div{
-  position: relative;
-  top: 0;
-  left: 0;
   width: 100vw;
-  height: 90vh;
-  background: none;
-  z-index: -1;
-	overflow-x: hidden;
-  display: flex;
-  -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-  justify-content: center;
-	-webkit-justify-content: center;
-  align-items: center;
-  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
 }
-#outer-wrapper >ul{
+.main>section{
+  position: relative;
+  width: 100vw;
+}
+.main>section>div{
   position: absolute;
   top: 0;
-  width:80%;
-  margin:20px;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
 }
-#outer-wrapper >ul>li{
-	font-size: 18px;
+.main>section>div>img{ width: 100% }
+.main>section>ul{
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+  z-index: 10;
+}
+.main>section>ul>li{
+  display:block;
+  font-size: 18px;
   float: left;
   margin: 8px;
   text-decoration: none;
@@ -148,32 +175,42 @@ nav>a:nth-child(3):hover{
   letter-spacing: 3px;
 	color: #fff;
 	padding: 7px 2px;
-	display:block;
 }
-#outer-wrapper >ul>li>a{
-	text-decoration: none;
+.main>section>ul>li:hover{ background: #fff }
+.main>section>ul>li:hover>a{ text-decoration: underline }
+.main>section>ul>li>a{
+  text-decoration: none;
 	padding: 7px;
 }
-#outer-wrapper >ul>li>a:hover, #outer-wrapper >ul>li>a:focus{
-	background: #fff;
-}
-#info a{
-    position: absolute;
-    bottom: 25px;
-    right: 50px;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-#info a:hover{
+/* DESKTOP */
+@media screen and (min-width:800px) {
+  .main{
+    -webkit-flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -o-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .main>section>ul{
+    margin-top: 30px;
+    min-height: 80vh;
+  }
+	.main>section>ul>li{
+		font-size: 35px;
+    background:#fff;
+	}
+  .main>section>ul>li>a:hover{
     text-decoration: underline;
-    color:black;
+  }
 }
 
+
+
+/* SECTIONS */
 #main{
-  position: absolute;
-  width: 90%;
-  height: 100%;
+  position: relative;
+  width: 90vw;
+  height: 100vh;
   left: 5%;
 }
 #main>h1{
@@ -203,7 +240,7 @@ nav>a:nth-child(3):hover{
     height: 100%;
   }
   .textAbout>div{
-    position: absolute;
+    position: relative;
     top: 5%;
     width: 100%;
     height: 70%;
@@ -263,12 +300,12 @@ nav>a:nth-child(3):hover{
 }
 
 footer{
-  margin-top: 60px;
-  width: 100%;
+  position: relative;
+  width: 100vw;
   height: 200px;
   background: #fff;
   line-height: 1.2;
-	color: #666 !important;
+	color: #666;
 }
 footer> a{
   display: block;
@@ -384,12 +421,7 @@ color: #000;
 	width: 50px;
 	font-size: 18px;
 }
-/* DESKTOP */
-@media screen and (min-width:800px) {
-	#outer-wrapper >ul>li{
-		font-size: 35px !important;
-	}
-}
+
 
 
 @media screen and (max-width:1300px) {
