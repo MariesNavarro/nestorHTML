@@ -5,10 +5,6 @@ window.console.log("%cCoded by Mn - http://fluo.com.mx", "color:pink;  font-size
 function _(el){return document.querySelector(el); }
 function __(el){return document.querySelectorAll(el); }
 
-window.onload = function(){
-
-}
-
 var c = 0;
 function slideLoop(){
 	let wr = _('#imgBack'),
@@ -16,7 +12,7 @@ function slideLoop(){
 			lis = __('#urls>li'),
 			urls = __('#urls>li>a'),
 			msrc;
-	for (var i = 0; i < urls.length; i++) {
+	for (let i = 0; i < urls.length; i++) {
 		urls[i].setAttribute('data-img', 'img/home'+i+'.jpg');
 		if(!checkBowser) urls[i].setAttribute('onmouseover', 'enableEnter(this)');
 	}
@@ -40,7 +36,7 @@ function slideLoop(){
 
 function slideHover(){
 	let urls = __('#urls>li>a');
-	for (var i = 0; i < urls.length; i++) {
+	for (let i = 0; i < urls.length; i++) {
 		urls[i].setAttribute('data-img', 'img/home'+i+'.jpg');
 		if(!checkBowser) urls[i].setAttribute('onmouseover', 'enableEnter(this)');
 	}
@@ -52,57 +48,36 @@ function enableEnter(t){
 	wr.setAttribute('src', dsrc);
 }
 
+function loadingHome(){
+	let urlList = [], xhrList = [], c = 0, num,
+			wr = _('#loading'),
+			per = _('#per');
+	for( var i = 1; i <= 17; i++){
+		urlList.push('img/home'+i+'.jpg');
+	}
+  for(var i=0; i<urlList.length; i++){
+    xhrList[i] = new XMLHttpRequest();
+    xhrList[i].open('GET', urlList[i], true);
+    xhrList[i].responseType = "blob";
+    xhrList[i].onload = function (e){
+      if(this.readyState == 4){
+        c++;
+				num = Math.round(c*(99/urlList.length));
+				per.innerHTML = num+"%";
+				if(c >= urlList.length){
+					setTimeout(function(){
+						wr.style.opacity = "0";
+						setTimeout(function(){
+							wr.classList.remove("showDisplay");
+							wr.classList.add("hideDisplay");
+						},800);
+					},1000);
+				}
+      }
+    }
+    xhrList[i].send();
+  }
+}
+
 slideLoop();
-
-// var btnPr = document.getElementsByClassName('btnPr');
-// var imgBack = document.getElementById('imgBack');
-// var loading = document.getElementById('loading');
-// var check = false;
-// var countSShow = 0;
-// var xhrList = [];
-// var urlList = [];
-// var imgFinished = 0;
-// var imgLoaded = false;
-
-// window.onload = function(){
-// 	checkLoad();
-// 	if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) check = true;
-// 		if(check){
-//       slideShow(0);
-//       imgBack.style.height = "100%";
-//       setInterval(function(){
-//         countSShow++;
-//         slideShow(countSShow);
-//         if(countSShow >= 16) countSShow = -1;
-//       },2500);
-// 		}else{
-//         enableHover();
-// 		}
-// }
-
-
-
-// function checkLoad(){
-//   for( var i = 1; i <= 17; i++){
-//     urlList.push('img/home'+i+'.jpg');
-//   }
-//
-//   for(var i=0; i<urlList.length; i++){
-//     xhrList[i] = new XMLHttpRequest();
-//     xhrList[i].open('GET', urlList[i], true);
-//     xhrList[i].responseType = "blob";
-//     xhrList[i].onload = function (e){
-//       if(this.readyState == 4){
-//         imgFinished++;
-//         var num = Math.round(imgFinished * 11.112 );
-//         // percentage.style.height = num + "%";
-//         if(imgFinished == 16){
-//         imgLoaded = true;
-// 				setTimeout(function(){ loading.style.opacity = "0" },1000);
-// 				setTimeout(function(){ loading.style.display = "none" },1100);
-//         }
-//       }
-//     }
-//     xhrList[i].send();
-//   }
-// }
+loadingHome();
