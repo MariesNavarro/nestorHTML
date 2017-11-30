@@ -1,0 +1,7 @@
+1 Slider automatico y con click avanzar
+2 Prev / Next botones
+3 Bajar h1
+
+
+BUGS
+Arreglar el alto de la caja de texto

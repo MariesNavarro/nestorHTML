@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="cache-control" content="no-cache"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="google" content="notranslate"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0000, minimum-scale=1.0000, maximum-scale=1.0000, user-scalable=yes">
+    <title>Nestor Quñones | Optical Magnifiers</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <div id="loading">
+				<img src="img/triangulo.svg" alt=" ">
+				<div>
+					<p>Nestor Quiñones</p>
+					<p>Loading</p>
+				</div>
+		</div>
+    <nav id="menuAbout">
+  <a href="index.html">Nestor Quiñones</a>
+      <a href="mailto:quinonnes@gmail.com?Subject=Contacto%20desde%20web" target="_blank"><img src="img/mail.svg" alt=" "></a>
+      <a href="about.html" id="about">About</a>
+    </nav>
+    <div id="main">
+      <h1>Optical Magnifiers</h1>
+      <div id="wrapProject">
+        <div id="textProject">
+          <p>
+          We are experience, perception and projection. Reality is an assemblage of unique and individual optics.
+          </p>
+        </div>
+          <div class="sliderWrap" id="lupas">
+            <ul id="sliderContainer">
+            <div id="onDetect"></div>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas1.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas2.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas4.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas5.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas6.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas7.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas8.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas9.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas10.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas11.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas12.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas13.jpg');"></li>
+            <li class="slide" style="background-image:url('img/lupas-opticas/lupas-opticas14.jpg');"></li>
+          </ul>
+          <div id="bullets" style="list-style: none;"></div>
+          </div>
+      </div>
+      <footer>
+        <h2>Contact</h2>
+        <a href="mailto:quinonnes@gmail.com?Subject=Contacto%20desde%20web" target="_blank" style="margin-bottom:2px;">quinonnes@gmail.com</a>
+        <p>c:+52 1 (55) 1818 2957</p>
+        <p>Copyright Holder All Rights Reserved. Nestor Quiñones © 2017</p>
+      </footer>
+    </div> <!-- main (margen) -->
+    <script>
+    var xhrList = [];
+    var urlList = [];
+    var imgFinished = 0;
+    var imgLoaded = false;
+    var check = false;
+    checkLoad();
+    function checkLoad(){
+      for( var i = 1; i <= 14; i++){
+        urlList.push('img/lupas-opticas/lupas-opticas'+i+'.jpg');
+      }
+
+      for(var i=0; i<urlList.length; i++){
+        xhrList[i] = new XMLHttpRequest();
+        xhrList[i].open('GET', urlList[i], true);
+        xhrList[i].responseType = "blob";
+        xhrList[i].onload = function (e){
+          if(this.readyState == 4){
+            imgFinished++;
+            var num = Math.round(imgFinished * 11.112 );
+            // percentage.style.height = num + "%";
+            if(imgFinished == 13){
+            imgLoaded = true;
+    				setTimeout(function(){ loading.style.opacity = "0" },1000);
+    				setTimeout(function(){ loading.style.display = "none" },1100);
+            }
+          }
+        }
+        xhrList[i].send();
+      }
+    }
+  </script>
+  <script src="js/sections.js" charset="utf-8"></script>
+  </body>
+</html>
