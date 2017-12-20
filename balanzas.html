@@ -10,8 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0000, minimum-scale=1.0000, maximum-scale=1.0000, user-scalable=yes">
     <title>Nestor Quñones | Balances</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -20,6 +18,7 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
+    <p id="s"></p>
     <div id="loading">
 				<img src="img/triangulo.svg" alt=" ">
 				<div>
@@ -27,42 +26,45 @@
 					<p>Loading</p>
 				</div>
 		</div>
-    <div id="main">
-      <h1>Balances</h1>
-      <div id="wrapProject">
-        <div id="textProject">
-          <p>
-          The scales normally used in Mexican markets are perhaps relics but they mean weight and value.
-          A world organized with that measure and unbalanced in many of its motives.
-          </p>
-        </div>
-          <div class="sliderWrap">
-            <ul id="sliderContainer">
-            <div id="onDetect"></div>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas1.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas2.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas3.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas4.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas5.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas6.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas7.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas8.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas9.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas10.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas11.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas12.jpg');"></li>
-            <li class="slide" style="background-image:url('img/balanzas/balanzas13.jpg');"></li>
-          </ul>
-          <div id="bullets" style="list-style: none;"></div>
-          </div>
+    <div class="main_projects showDisplayFlex">
+      <article>
+        <h1>Balances</h1>
+        <p>
+          The scales normally used
+          in Mexican markets are
+          perhaps relics but they
+          mean weight and value.
+          A world organized with
+          that measure and unbalanced
+          in many of its motives.
+        </p>
+      </article>
+      <div class="sliderWrap">
+      <ul id="sliderContainer">
+      <div id="onDetect"></div>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas1.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas2.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas3.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas4.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas5.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas6.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas7.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas8.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas9.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas10.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas11.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas12.jpg');"></li>
+        <li class="slide hideSlide" style="background-image:url('img/balanzas/balanzas13.jpg');"></li>
+      </ul>
+      <div id="bullets" style="list-style: none;"></div>
       </div>
-      <footer>
-        <h2>Contact</h2>
-        <a href="mailto:quinonnes@gmail.com?Subject=Contacto%20desde%20web" target="_blank" style="margin-bottom:2px;">quinonnes@gmail.com</a>
-        <p>c:+52 1 (55) 1818 2957</p>
-        <p>Copyright Holder All Rights Reserved. Nestor Quiñones © 2017</p>
-      </footer>
-    </div> <!-- main (margen) -->
+    </div>
+    <footer>
+      <h2>Contact</h2>
+      <a href="mailto:quinonnes@gmail.com?Subject=Contacto%20desde%20web" target="_blank" style="margin-bottom:2px;">quinonnes@gmail.com</a>
+      <p>c:+52 1 (55) 1818 2957</p>
+      <p>Copyright Holder All Rights Reserved. Nestor Quiñones © 2017</p>
+    </footer>
     <nav>
       <a href="index.html">Nestor Quiñones</a>
       <a href="mailto:quinonnes@gmail.com?Subject=Contacto%20desde%20web" target="_blank"><img src="img/mail.svg" alt=" "></a>
@@ -98,6 +100,11 @@
         }
         xhrList[i].send();
       }
+      }
+
+
+      window.onresize = function(){
+        let s = document.getElementById('s').innerHTML = "Width: " + window.innerWidth + "px Height: " + window.innerHeigth + "px";
       }
     </script>
     <script src="js/sections.js" charset="utf-8"></script>
